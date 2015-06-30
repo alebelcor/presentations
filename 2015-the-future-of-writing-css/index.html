@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Future of Writing CSS</title>
+  <meta name="author" content="Alejandro BeltrÃ¡n">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="css/github-theme-override.css">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/github.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h1>The Future of Writing <abbr title="Cascading Style Sheets">CSS</abbr></h1>
+        <aside class="notes">
+          <p>The name of this talk.</p>
+          <p>How many of you write code for the web?</p>
+          <p>How many of you write or have written <abbr title="Cascading Style Sheets">CSS</abbr>?</p>
+          <p>How many of you write or have written <abbr title="Cascading Style Sheets">CSS</abbr> using a preprocessor, like Sass?</p>
+          <p>This talk is for you.</p>
+          <p>We'll cover a little history, present and future.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>About me:</h2>
+        <ul>
+          <li>Front End</li>
+          <li>I like tools</li>
+          <li>I like <abbr title="Cascading Style Sheets">CSS</abbr></li>
+        </ul>
+
+        <p style="text-align: right;">Twitter: @alebelcor</p>
+
+        <aside class="notes">
+          <p>I'm a Software Engineer that specializes on the Front End and I work here at Nearsoft as part of
+            the Switchfly team. Woo! Switchfly</p>
+          <p>I like tools, I'm the one that favorites a tweet or stars a GitHub project if I think it's cool,
+            useful or if I think I might use it in the future</p>
+          <p>And I like <abbr title="Cascading Style Sheets">CSS</abbr>, some of the times.</p>
+        </aside>
+      </section>
+
+      <section>
+          <h1><abbr title="Hypertext Markup Language">HTML</abbr></h1>
+          <p>The Basics</p>
+
+          <pre class="fragment"><code class="html">&lt;body&gt;<!-- displayable content -->&lt;/body&gt;
+
+&lt;a href="http://example.org">site&lt;/a&gt;
+
+&lt;img src="avatar.jpg"&gt;
+
+&lt;div&gt;...&lt;/div&gt;</code></pre>
+
+          <div class="fragment">
+            <h3>tl;dr</h3>
+            <p>You describe your content using tags.</p>
+          </div>
+          <aside class="notes">
+            <p>A little history. I'm sure most of you know this, I'll go fast.</p>
+            <p>HTML is the standard language for writing web pages and applications.</p>
+            <p>It's a way to describe content via tags</p>
+            <p>If you want to show something on the page: &lt;body&gt;s</p>
+            <p>If you want to link: &lt;a&gt;s</p>
+            <p>If you want to show an image: &lt;img&gt;s</p>
+          </aside>
+      </section>
+
+      <section>
+        <h1>Style</h1>
+
+        <p class="fragment">(the ancient way)</p>
+
+        <pre class="fragment"><code class="html">&lt;font size="5"&gt;big text&lt;/font&gt;
+
+&lt;table bgcolor="#ddd"&gt;...&lt;/table&gt;
+
+&lt;td background="images/bg.jpg"&gt;...&lt;/td&gt;</code></pre>
+
+        <p class="fragment">Bad idea to mix presentation and structure</p>
+
+        <aside class="notes">
+          <p>What about looks? pretty? no problem! style attributes</p>
+          <p>Increase the font size</p>
+          <p>Add a background color</p>
+          <p>Add a background image</p>
+          <p>In restrospect, a bad idea</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1><abbr title="Cascading Style Sheets">CSS</abbr></h1>
+
+        <ul class="fragment">
+          <li>More styling power</li>
+          <li>Separate but related to HTML</li>
+          <li>Browser styles be gone!</li>
+        </ul>
+
+        <aside class="notes">
+          <p>Then came <abbr title="Cascading Style Sheets">CSS</abbr></p>
+          <p>Language to describe the look and formatting of an HTML doc</p>
+          <p>It gave more styling power to authors</p>
+          <p>Presentation is somewhat decoupled from HTML</p>
+          <p>A better way to override browser styles</p>
+        </aside>
+      </section>
+
+      <section>
+        <pre><code class="css">div {
+  font-size: 18px;
+}</code></pre>
+
+        <p class="fragment">Easy to learn, hard to master.</p>
+
+        <aside class="notes">
+          <p>Sumed up into two main parts: selector, declarations</p>
+          <p>A selector is a pattern that will match one or more elements</p>
+          <p>A declaration is a particular style applied to the element(s) in
+            the form of a property name, colon and a value</p>
+          <p>If it looks simple it's because it is. CSS is easy to learn, but
+            hard to master</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Why?</h1>
+
+        <ul class="fragment">
+          <li>Scalability</li>
+          <li>Maintainability</li>
+          <li>Compatibility</li>
+        </ul>
+
+        <aside class="notes">
+          <p>Hard to write so it doesn't grow to be a monster. OOCSS, SMACSS, BEM and ITCSS</p>
+          <p>Hard to update or fix without creating side effects or regressions</p>
+          <p>As a developer, tons of quirks you have to be aware of for cross-browser compatibility</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Preprocessors to the rescue</h1>
+        <small>Disclaimer: I'm focusing on <a href="http://sass-lang.com">Sass</a></small>
+
+        <aside class="notes">
+          <p>When I mention Sass, really I'm talking about all preprocessors</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How?</h1>
+        <ul class="fragment">
+          <li>Variables</li>
+          <li>Nesting</li>
+          <li>Partials</li>
+          <li>Mixins</li>
+          <li>Extends</li>
+          <li>Operators</li>
+        </ul>
+
+        <aside class="notes">
+          <p>Most, if not all, preprocessors have all these features</p>
+          <p>Let's go over them quickly</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Variables</h1>
+        <p>Avoid repetition and allow for configuration.</p>
+        <pre class="fragment"><code class="scss">$prefix: ns;
+$blue: #00bcd4;
+
+.#{$prefix}-header {
+  background-color: $blue;
+}</code></pre>
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.ns-header {
+  background-color: #00bcd4;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>They help us write less repetitive code</p>
+          <p>Whether is via changing colors, fonts, etc.</p>
+          <p>A repeated value should ideally be only changed in one place</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Nesting</h1>
+        <p>Visual hierarchy</p>
+
+        <pre class="fragment"><code class="scss">.header {
+  .nav {
+    background-color: #00bcd4;
+  }
+}</code></pre>
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.header .nav {
+  background-color: #00bcd4;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>Provides a visual hierarchy when constructing selectors</p>
+          <p>Also helps us with selector repetition</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Partials</h1>
+        <p>Help organize code.</p>
+
+        <pre class="fragment"><code class="scss">// _base.scss
+.base { width: 980px; }
+
+// main.scss
+@import "base";
+
+.main { margin: 0 auto; }</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.base { width: 980px; }
+
+.main { margin: 0 auto; }</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>Partials are snippets of code you can include anywhere</p>
+          <p>Great way to organize code without the performance hit</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Mixins</h1>
+        <p>Reusable functions with output.</p>
+
+        <pre class="fragment"><code class="scss">@mixin pull-left() {
+  float: left;
+}
+
+.main {
+  @include pull-left;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.main {
+  float: left;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>A reusable function that will output one or more declarations</p>
+          <p>Useful when you need logic or repetitive declarations</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Extends</h1>
+        <p>Selector inheritance</p>
+
+        <pre class="fragment"><code class="scss">.container {
+  width: 980px;
+}
+
+.main {
+  @extend .container;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.container, .main {
+  width: 980px;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>A way of selector inheritance that will associate the declarations
+            of one to another.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Operators</h1>
+        <p>Do the math</p>
+
+        <pre class="fragment"><code class="scss">h1 {
+  font-size: (16px * 2);
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">h1 {
+  font-size: 32px;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>You can add, subtract, multiply and divide</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Other</h1>
+
+        <pre><code class="scss">@if, @else if, @else
+
+@each
+
+// inline comments
+
+lightness($color)
+
+(key1: value1, key2: value2)</code></pre>
+
+        <aside class="notes">
+          <p>Sass provides all sorts of other cool and useful stuff.</p>
+          <p>That's a lot of power and with great power comes great tools.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Sass Tools</h1>
+
+        <ul>
+          <li><a href="http://compass-style.org/">Compass</a></li>
+          <li><a href="https://github.com/twbs/bootstrap-sass">Bootstrap</a></li>
+          <li><a href="http://susy.oddbird.net/">Susy</a></li>
+        </ul>
+
+        <p class="fragment">But preprocessors can only take us so far.</p>
+
+        <aside class="notes">
+          <p>Compass: a <abbr title="Cascading Style Sheets">CSS</abbr> authoring framework with lots of goodies like out of the box sprites and vertical rhythm.</p>
+          <p>Bootstrap: we all know what it is.</p>
+          <p>Susy: agnostic set of tools for creating powerful, custom layouts. The best I know.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Problems</h1>
+        <ul>
+          <li>Nesting</li>
+          <li>Mixins</li>
+          <li>Extends</li>
+          <li>Logic inside styles</li>
+          <li>Monolithic</li>
+        </ul>
+
+        <p class="fragment">Preprocessors are great, but we can do better.</p>
+
+        <aside class="notes">
+          <p>Nesting: a bad idea if nesting more than two levels deep. Creates long selectors and higher specificity</p>
+          <p>Mixins: say for browser prefixes, you have to maintain whatever the output is</p>
+          <p>Extends: becomes a bad idea really fast if you overextend. Creates long selectors and higher specificity</p>
+          <p>Logic inside styles: Logic should belong in a programming language, it makes CSS harder to read and to reason about</p>
+          <p>Monolithic: Means the code is huge, fixing bugs and making releases takes time and you're stuck if you
+            don't like how a feature works</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>PostCSS</h1>
+        <p class="fragment">A tool for transforming <abbr title="Cascading Style Sheets">CSS</abbr> with JavaScript plugins.</p>
+
+        <aside class="notes">
+          <p>Another CSS preprocessor? No, not quite</p>
+          <p>Call it a tool, transformer, postprocessor, transpiler or whatever. You write CSS and it will output transformed CSS</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How does it work?</h1>
+
+        <ul>
+          <li>Parser</li>
+          <li>Stringifier</li>
+        </ul>
+
+        <p class="fragment">This makes it small compared against others.</p>
+
+        <aside class="notes">
+          <p>It has two parts: a parser and a stringifier</p>
+          <p>The Parser takes in CSS and outputs an AST</p>
+          <p>The Stringifier takes in an AST and outputs CSS</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How small?</h1>
+
+        <table class="fragment">
+          <thead>
+            <th>Name</th>
+            <th>Lines of code</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://github.com/postcss/postcss">PostCSS</a></td>
+              <td>2100~</td>
+            </tr>
+            <tr>
+              <td><a href="https://learnboost.github.io/stylus/">Stylus</a></td>
+              <td>8000~</td>
+            </tr>
+            <tr>
+              <td><a href="http://sass-lang.com/">Ruby Sass</a></td>
+              <td>13000~</td>
+            </tr>
+            <tr>
+              <td><a href="http://lesscss.org/">Less.js</a></td>
+              <td>13300~</td>
+            </tr>
+            <tr>
+              <td><a href="http://libsass.org/">LibSass</a></td>
+              <td>21900~</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="fragment">It's also very fast.</p>
+
+        <aside class="notes">
+          <p>It's almost 4 times smaller than Stylus</p>
+          <p>It's at least 6 times smaller than Ruby Sass and Less.js</p>
+          <p>It's at least 10 times smaller than LibSass</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How fast?</h1>
+
+        <table class="fragment">
+          <thead>
+            <th>Name</th>
+            <th>Time</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://github.com/postcss/postcss">PostCSS</a></td>
+              <td>36ms</td>
+            </tr>
+            <tr>
+              <td><a href="http://libsass.org/">LibSass</a></td>
+              <td>136ms</td>
+            </tr>
+            <tr>
+              <td><a href="http://lesscss.org/">Less.js</a></td>
+              <td>160ms</td>
+            </tr>
+            <tr>
+              <td><a href="https://learnboost.github.io/stylus/">Stylus</a></td>
+              <td>167ms</td>
+            </tr>
+            <tr>
+              <td><a href="http://sass-lang.com/">Ruby Sass</a></td>
+              <td>1084ms</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <a href="https://github.com/postcss/benchmark#postcss-benchmarks" class="fragment">Benchmark</a>
+        </p>
+
+        <aside class="notes">
+          <p>Here's how it compares against other preprocessors in parsing, nested rules, mixins, variables and math</p>
+          <p>It's almost 4 times faster than LibSass</p>
+          <p>It's 4.5 times faster than Less.js and Stylus</p>
+          <p>It's 30 times faster than Ruby Sass</p>
+        </aside>
+
+      </section>
+
+      <section>
+        <h1>However</h1>
+        <p>It doesn't have built-in variables, mixins or any of that.</p>
+        <p class="fragment">PostCSS is a tool for transforming <abbr title="Cascading Style Sheets">CSS</abbr> with JavaScript <strong>plugins.</strong></p>
+
+        <aside class="notes">
+          <p>What's the deal? well, let's look at the definition again</p>
+          <p>That's what plugins are for. All features and transformations are done via plugins.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How did it work again?</h1>
+
+        <ul>
+          <li>Parser</li>
+          <li class="fragment">Plugin(s)</li>
+          <li>Stringifier</li>
+        </ul>
+
+        <p class="fragment">Variables, nesting, partials, mixins, extends?</p>
+
+        <aside class="notes">
+          <p>A plugin sits in the middle, it takes an AST and outputs a transformed AST</p>
+          <p>What about Sass' features? Can PostCSS do that?</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Variables</h1>
+        <p><a href="https://github.com/postcss/postcss-simple-vars">PostCSS Simple Variables</a></p>
+
+        <pre class="fragment"><code class="css">$prefix: ns;
+$blue: #00bcd4;
+
+.$(prefix)-header {
+  background-color: $blue;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+
+          <pre><code class="css">.ns-header {
+  background-color: #00bcd4;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>There's a plugin to add variables</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Nesting</h1>
+        <p><a href="https://github.com/postcss/postcss-nested">PostCSS Nested</a></p>
+
+        <pre class="fragment"><code class="css">.header {
+  .nav {
+    background-color: #00bcd4;
+  }
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+
+          <pre><code class="css">.header .nav {
+    background-color: #00bcd4;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>There's a plugin to add nesting</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Partials</h1>
+        <p><a href="https://github.com/postcss/postcss-import">PostCSS Import</a></p>
+
+        <pre class="fragment"><code class="css">/* base.css */
+.base { width: 980px; }
+
+/* main.css */
+@import "base.css";
+
+.main { margin: 0 auto; }</code></pre>
+
+        <div class="fragment">
+          Outputs:
+
+          <pre><code class="css">.base { width: 980px; }
+
+.main { margin: 0 auto; }</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>You might also want partials</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Mixins</h1>
+        <p><a href="https://github.com/postcss/postcss-mixins">PostCSS Mixins</a></p>
+
+        <pre class="fragment"><code class="scss">@define-mixin pull-left {
+  float: left;
+}
+
+.main {
+  @mixin pull-left;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.main {
+  float: left;
+}</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h1>Extends</h1>
+        <p><a href="https://github.com/davidtheclark/postcss-simple-extend">PostCSS Simple Extend</a></p>
+
+        <pre class="fragment"><code class="scss">@define-placeholder container {
+  width: 980px;
+}
+
+.main {
+  @extend container;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.main {
+  width: 980px;
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>A way of selector inheritance that will associate the declarations
+            of one to another.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>What about these?</h1>
+        <ul>
+          <li><code>@if</code>, <code>@else if</code>, <code>@else</code> <span class="fragment">&rarr; <a href="https://github.com/andyjansson/postcss-conditionals">postcss-conditionals</a></span></li>
+          <li><code>@for</code> <span class="fragment">&rarr; <a href="https://github.com/antyakushev/postcss-for">PostCSS For Plugin</a></span></li>
+          <li><code>@each</code> <span class="fragment">&rarr; <a href="https://github.com/outpunk/postcss-each">postcss-each</a></span></li>
+          <li>Color functions <span class="fragment">&rarr; <a href="https://github.com/kristoferjoseph/postcss-color-scale">PostCSS Color Scale</a></span></li>
+          <li>Inline comments (<code>//</code>) <span class="fragment">&rarr; <a href="https://github.com/moczolaszlo/postcss-inline-comment">PostCSS Inline Comments</a></span></li>
+        </ul>
+
+        <p class="fragment">Just as powerful as any other preprocessor.</p>
+
+        <aside class="notes">
+          <p>There are plugins for pretty much any important Sass feature out there</p>
+          <p>Most of these come from the PostCSS maintainers, but not all of them</p>
+          <p>That's what's so cool about this. Don't like how a feature behaves? change the plugin or write your own</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Why change then?</h1>
+
+        <aside class="notes">
+          <p>If everything is the same but with diferent syntax then, why change?</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Opacity for IE8</h1>
+        <div class="fragment">
+          <p>Manual way:</p>
+          <pre><code class="css">.thing {
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+}</code></pre>
+        </div>
+
+        <div class="fragment">
+          <p>Sass way:</p>
+          <pre><code class="scss">.thing {
+  @include opacity(0.9);
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>IE8 requires a filter value.</p>
+          <p>Manual way: remember to type that in every time, error prone, tedious</p>
+          <p>Sass way: create a mixin. Better but what if you don't support IE8 anymore?</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Opacity for IE8</h1>
+        <p><a href="https://github.com/iamvdo/postcss-opacity">PostCSS Opacity</a></p>
+
+        <pre class="fragment"><code class="css">.thing {
+  opacity: 0.9;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.thing {
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>You just write regular CSS. You don't have to think about it</p>
+          <p>You don't have to remember to include a mixin</p>
+          <p>What if you don't support IE8 anymore? You just stop using the plugin.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1><code>rgba()</code> for IE8</h1>
+        <p><a href="https://github.com/postcss/postcss-color-rgba-fallback">postcss-color-rgba-fallback</a></p>
+
+        <pre class="fragment"><code class="css">body {
+  background-color: rgba(0, 96, 88, 0.8);
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">body {
+  background-color: #006058;
+  background-color: rgba(0, 96, 88, 0.8);
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>Following the same example of IE8</p>
+          <p>This plugin provides a hex fallback for rgba()</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Useful plugins</h1>
+        <ul>
+          <li><a href="https://github.com/alex499/postcss-image-set">postcss-image-set</a>: <code>image-set</code> fallback</li>
+          <li><a href="https://github.com/iamvdo/postcss-vmin">PostCSS Vmin</a>: <code>vmin</code> fallback for IE9</li>
+          <li><a href="https://github.com/hail2u/node-css-mqpacker">CSS MQPacker</a>: pack same MQ rules into one MQ rule.</li>
+          <li><a href="https://github.com/cuth/postcss-pxtorem">postcss-pxtorem</a>: generates <code>rem</code> units from <code>px</code> units</li>
+        </ul>
+
+        <p class="fragment">These are great because you are just writing <abbr title="Cascading Style Sheets">CSS</abbr>.</p>
+        <p class="fragment">Need more?</p>
+
+        <aside class="notes">
+          <p>image-set is a method of letting the browser pick the most appropriate background image from a given set</p>
+          <p>IE9 requires you use vm instead of vmin</p>
+          <p>Helps with output size avoid repeated MQs</p>
+          <p>Useful if you want to take advantage of rems</p>
+          <p>You write CSS, don't have to think, don't need to shim, those headaches are gone</p>
+          <p>Still unconvinced? Let me show more</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a></h1>
+
+        <div class="fragment">
+          <code>ie >= 8, last 2 versions</code>
+          <pre><code class="css">.wrapper {
+  transform: scale(0.5);
+}</code></pre>
+        </div>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.wrapper {
+  -ms-transform: scale(0.5);
+      transform: scale(0.5);
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>Configure browser support, write CSS and autoprefixer will do the rest</p>
+          <p>Prefixing properties that require one</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1><a href="https://github.com/postcss/postcss-media-minmax">PostCSS&nbsp;Media&nbsp;Minmax</a></h1>
+
+        <pre class="fragment"><code class="css">@media (width >= 768px) and (width <= 1024px) {
+  /* ... */
+}
+
+@media (768px <= width <= 1024px) {
+  /* ... */
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">@media (min-width: 768px) and (max-width: 1024px) {
+  /* ... */
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* ... */
+}</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>CSS Media Queries Level 4 are making them more readable by adding syntax sugar</p>
+          <p>This plugin will give you access to the new syntax while falling back to the old widely supported one.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1><a href="https://github.com/MohammadYounes/rtlcss">RTLCSS</a></h1>
+
+<pre class="fragment"><code class="css">.example {
+  padding: 5px 10px 15px 20px;
+  border-style: dotted dashed double solid;
+  border-width: 1px 2px 3px 4px;
+  border-color: red green blue black;
+}</code></pre>
+
+        <div class="fragment">
+          Outputs:
+          <pre><code class="css">.example {
+  padding: 5px 20px 15px 10px;
+  border-style: dotted solid double dashed;
+  border-width: 1px 4px 3px 2px;
+  border-color: red black blue green;
+}</code></pre>
+
+        <aside class="notes">
+          <p>Extremely useful if you have a site or app that supports different languages
+            like arabic or hebrew that are read from right to left.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Need even more?</h1>
+        <ul class="fragment">
+          <li><a href="https://github.com/pascalduez/postcss-map">postcss-map</a>: configuration via YAML/JSON maps.</li>
+          <li><a href="https://github.com/borodean/postcss-assets">PostCSS Assets</a>: get image sizes and inline files.</li>
+          <li><a href="https://github.com/2createStudio/postcss-sprites">PostCSS Sprites</a>: generate sprites and update references.</li>
+          <li><a href="https://github.com/corysimmons/lost">Lost Grid</a>: powerful <code>calc()</code>based grid system.</li>
+          <li><a href="http://cssnext.io/">cssnext</a>: transpiler to use the latest <abbr title="Cascading Style Sheets">CSS</abbr> syntax.</li>
+        </ul>
+
+        <p class="fragment"><a href="https://www.npmjs.com/browse/depended/postcss">220+ dependents</a> on <code>npm</code></p>
+
+        <aside class="notes">
+          <p>Configuration decoupled in seperate files</p>
+          <p>An asset manager</p>
+          <p>Sprite generation</p>
+          <p>Grids</p>
+          <p>Sort of like Babel but for CSS</p>
+          <p>There is no shortage of plugins in this ecosystem</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>How to use</h1>
+
+        <pre class="fragment"><code class="js">var gulp = require('gulp');
+
+gulp.task('default', function () {
+  return gulp.src('assets/stylesheets/style.css')
+    .pipe(gulp.dest('dist/'));
+});</code></pre>
+
+        <div class="fragment">
+          Install it:
+          <pre><code class="bash">npm install gulp-postcss --save-dev</code></pre>
+        </div>
+
+        <aside class="notes">
+          <p>How many of you use or have used some sort of build tool?</p>
+          <p>How many of you use or have used Grunt?</p>
+          <p>How many of you use or have used Gulp? we'll use this for our example</p>
+          <p>I assume you have a package.json, gulpfile.js and that gulp is installed both globally and locally</p>
+          <p>A simple pipeline, no doing anything except copying a file</p>
+          <p>Next we'll install a plugin for Gulp to start using PostCSS</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Adding nesting</h1>
+        <pre><code class="bash">npm install postcss-nested --save-dev</code></pre>
+        <pre><code class="js">var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+
+var nested = require('postcss-nested');
+
+gulp.task('default', function () {
+  return gulp.src('assets/stylesheets/style.css')
+    .pipe(postcss([ nested ]))
+    .pipe(gulp.dest('dist/'));
+});</code></pre>
+
+        <aside class="notes">
+          <p>We'll install the plugin and add it the process</p>
+          <p>PostCSS exposes a function that takes an array of plugins and pipe the result forward</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Adding variables</h1>
+        <pre><code class="bash">npm install postcss-simple-vars --save-dev</code></pre>
+        <pre><code class="js">var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+
+var nested = require('postcss-nested');
+var vars = require('postcss-simple-vars');
+
+gulp.task('default', function () {
+  return gulp.src('assets/stylesheets/style.css')
+    .pipe(postcss([ nested, vars ]))
+    .pipe(gulp.dest('dist/'));
+});</code></pre>
+
+        <aside class="notes">
+          <p>For most of the cases this is all you'll need to do, no need to configure anything</p>
+          <p>Let's look at a plugin that does require configuration</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Adding prefixes</h1>
+        <pre><code class="bash">npm install autoprefixer-core --save-dev</code></pre>
+        <pre><code class="js">var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+
+var nested = require('postcss-nested');
+var vars = require('postcss-simple-vars');
+var autoprefixer = require('autoprefixer-core');
+
+gulp.task('default', function () {
+  return gulp.src('assets/stylesheets/style.css')
+    .pipe(postcss([
+      nested,
+      vars,
+      autoprefixer({ browsers: ['ie >= 8, last 2 versions'] })
+    ]))
+    .pipe(gulp.dest('dist/'));
+});</code></pre>
+
+        <aside class="notes">
+          <p>You pass a configuration object to the exported function and that's it</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Advantages for build</h1>
+        <ul class="fragment">
+          <li>Easy to add/remove a plugin.</li>
+          <li>Requires little to no configuration.</li>
+          <li>No need for Grunt/Gulp wrapper plugins.</li>
+        </ul>
+
+        <aside class="notes">
+          <p>It's just a couple of lines in your build script.</p>
+          <p>Most plugins don't need to be configured and those that do accept a simple JS object.</p>
+          <p>JSHint, CSSLint, these all require a wrapper plugin to work with Grunt/Gulp</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>For the skeptics</h1>
+
+        <p class="fragment">You <strong>don't have</strong> to stop using preprocessors.</p>
+        <p class="fragment">Preprocessors output <abbr title="Cascading Style Sheets">CSS</abbr>.</p>
+        <p class="fragment">PostCSS transforms <abbr title="Cascading Style Sheets">CSS</abbr>.</p>
+
+        <ol class="fragment">
+          <li>Write Sass.</li>
+          <li>Sass outputs <abbr title="Cascading Style Sheets">CSS</abbr>.</li>
+          <li>PostCSS&nbsp;transforms&nbsp;it.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h1>That's it</h1>
+        <h3>Questions?</h3>
+        <div style="text-align: right;">
+          <p>Twitter: @alebelcor</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: false,
+      history: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+</body>
+</html>
